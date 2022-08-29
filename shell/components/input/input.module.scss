@@ -1,0 +1,18 @@
+.root {
+    position: relative;
+}
+
+.input {
+    //color: red;
+}
+
+.suggestions {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 12px;
+
+    & > div {
+        color: yellow;
+    }
+}

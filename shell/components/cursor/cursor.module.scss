@@ -1,0 +1,20 @@
+.cursor {
+    position: absolute;
+
+    width: var(--font-size);
+    height: var(--line-height);
+
+    background: #7bbddb;
+
+    opacity: 1;
+
+    &:not(.inputting) {
+        animation: blink 1s step-start 0.2s infinite;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
