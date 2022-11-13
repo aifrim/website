@@ -1,15 +1,18 @@
 import { withTRPC } from "@trpc/next";
-import { AppRouter } from "./api/trpc/[trpc]";
-import "../styles/app.scss";
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from "next/app";
-import Providers from "../shell/providers";
 import Commands from "../shell/commands";
+import Providers from "../shell/providers";
+import "../styles/app.scss";
+import { AppRouter } from "./api/trpc/[trpc]";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Providers>
             <Commands>
                 <Component {...pageProps} />
+                <Analytics />
             </Commands>
         </Providers>
     );
