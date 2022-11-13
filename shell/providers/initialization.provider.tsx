@@ -1,8 +1,6 @@
-import { createContextProvider } from "./create";
 import { useCallback, useEffect, useState } from "react";
-import { InputCtx } from "./input.provider";
-import { ShellCtx } from "./shell.provider";
 import { sleep } from "../utils";
+import { createContextProvider } from "./create";
 import { useHistory } from "./history.provider";
 
 const fontLoading = (font: string) =>
