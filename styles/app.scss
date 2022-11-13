@@ -29,3 +29,13 @@ body {
     align-items: center;
     align-content: center;
 }
+
+.separator {
+    color: #f26557;
+
+    display: flex;
+
+    div:not(:first-child) {
+        margin-left: -3px;
+    }
+}
