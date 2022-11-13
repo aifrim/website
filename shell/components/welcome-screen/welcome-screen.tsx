@@ -33,7 +33,7 @@ export default function WelcomeScreen() {
                     alt="Alexandru Ifrim"
                     width={80}
                     height={80}
-                    priority
+                    loading="lazy"
                 />
                 <div className={styles.details}>
                     <div>
