@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { sleep } from "../utils";
 import { createContextProvider } from "./create";
+import { useUserHasEntered } from "./entered.provider";
 import { useHistory } from "./history.provider";
 
 const fontLoading = (font: string) =>
@@ -25,6 +26,7 @@ const generateInitializationMessage = (text: JSX.Element, tick = false) => (
 );
 
 function useInitializationStore() {
+    const { entered } = useUserHasEntered();
     const [initialized, done] = useState(false);
 
     const { addInitializationMessage, clear } = useHistory();
@@ -100,8 +102,8 @@ function useInitializationStore() {
     }, []);
 
     useEffect(() => {
-        init();
-    }, []);
+        entered && init();
+    }, [entered]);
 
     return { initialized };
 }

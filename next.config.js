@@ -7,6 +7,15 @@ const nextConfig = {
             { loader: "@next/font/google", options: { subsets: ["latin"] } },
         ],
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "en.gravatar.com",
+                pathname: "/userimage/**",
+            },
+        ],
+    },
 };
 
 module.exports = nextConfig;

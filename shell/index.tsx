@@ -1,10 +1,12 @@
-import Input from "./components/input";
-import styles from "./styles/shell.module.scss";
-import Prompt from "./components/prompt";
 import History from "./components/history";
-import { useInput } from "./providers/input.provider";
-import { useInitialization } from "./providers/initialization.provider";
+import Input from "./components/input";
 import Loading from "./components/loading/loadiong";
+import Prompt from "./components/prompt";
+import WelcomeScreen from "./components/welcome-screen";
+import { useUserHasEntered } from "./providers/entered.provider";
+import { useInitialization } from "./providers/initialization.provider";
+import { useInput } from "./providers/input.provider";
+import styles from "./styles/shell.module.scss";
 
 function CommandRenderer() {
     const { command } = useInput();
@@ -18,7 +20,7 @@ function CommandRenderer() {
     return <Component key={name} />;
 }
 
-export default function Shell() {
+function InitializedShell() {
     const { initialized } = useInitialization();
 
     return (
@@ -39,4 +41,10 @@ export default function Shell() {
             )}
         </div>
     );
+}
+
+export default function Shell() {
+    const { entered } = useUserHasEntered();
+
+    return entered ? <InitializedShell /> : <WelcomeScreen />;
 }
