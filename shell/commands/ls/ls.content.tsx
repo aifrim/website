@@ -1,10 +1,13 @@
-import { useShell } from "../../providers/shell.provider";
 import trpc from "../../../utils/trpc";
 import Loading from "../../components/loading";
 
-export default function ListDirectoryContent() {
-    const { cwd } = useShell();
+type ListDirectoryContentProps = {
+    cwd: string;
+};
 
+export default function ListDirectoryContent({
+    cwd,
+}: ListDirectoryContentProps) {
     const { data: records } = trpc.useQuery(["ls", { pwd: cwd }]);
 
     if (!records) {

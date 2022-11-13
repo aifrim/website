@@ -26,16 +26,12 @@ export default withTRPC<AppRouter>({
         const url = process.env.VERCEL_URL
             ? `https://${process.env.VERCEL_URL}/api/trpc`
             : "http://localhost:3000/api/trpc";
+
         return {
             url,
-            /**
-             * @link https://react-query.tanstack.com/reference/QueryClient
-             */
-            // queryClientConfig: { defaultOptions: { queries: { staleTime: 60 } } },
+            req: ctx?.req,
+            res: ctx?.res,
         };
     },
-    /**
-     * @link https://trpc.io/docs/ssr
-     */
     ssr: true,
 })(MyApp);
