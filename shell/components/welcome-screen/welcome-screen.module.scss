@@ -40,5 +40,16 @@
 
     div + div {
         color: #7b888f;
+
+        span {
+            display: inline-block;
+
+            color: #253942;
+            background-color: #ddd;
+            box-shadow: -2px -2px 2px 0px rgba(0, 0, 0, 0.5) inset;
+
+            border-radius: 4px;
+            padding: 2px 5px;
+        }
     }
 }

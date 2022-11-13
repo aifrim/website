@@ -39,7 +39,9 @@ export default function WelcomeScreen() {
                     <div>
                         Welcome to <u>aifrim.com</u> - shell
                     </div>
-                    <div>Press ENTER to start</div>
+                    <div>
+                        Press <span>enter</span> to start
+                    </div>
                 </div>
             </div>
         </div>
