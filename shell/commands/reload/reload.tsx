@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Loading from "../../components/loading/loadiong";
+import Loading from "../../components/loading";
 
 const WAIT_TIME = 1002;
 
@@ -10,7 +10,7 @@ export default function Reload() {
 
     return (
         <>
-            Reloading <Loading wait={WAIT_TIME / 10} />
+            Reloading <Loading />
         </>
     );
 }

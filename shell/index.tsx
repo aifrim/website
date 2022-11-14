@@ -1,6 +1,7 @@
+import Background from "./components/background";
 import History from "./components/history";
 import Input from "./components/input";
-import Loading from "./components/loading/loadiong";
+import Loading from "./components/loading";
 import Prompt from "./components/prompt";
 import WelcomeScreen from "./components/welcome-screen";
 import { useUserHasEntered } from "./providers/entered.provider";
@@ -24,7 +25,7 @@ function InitializedShell() {
     const { initialized } = useInitialization();
 
     return (
-        <div>
+        <>
             <History />
 
             {initialized ? (
@@ -37,14 +38,21 @@ function InitializedShell() {
                     <CommandRenderer />
                 </>
             ) : (
-                <Loading />
+                <>
+                    <Loading /> Initializing
+                </>
             )}
-        </div>
+        </>
     );
 }
 
 export default function Shell() {
     const { entered } = useUserHasEntered();
 
-    return entered ? <InitializedShell /> : <WelcomeScreen />;
+    return (
+        <>
+            <Background />
+            {entered ? <InitializedShell /> : <WelcomeScreen />}
+        </>
+    );
 }

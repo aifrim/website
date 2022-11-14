@@ -1,0 +1,43 @@
+$size: 14px;
+
+$base: #253942;
+$brand: yellow;
+
+.loading {
+    width: $size;
+    height: $size;
+    margin-bottom: -2px;
+
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+
+    background: linear-gradient(
+        0deg,
+        rgba($brand, 0.2) 33%,
+        rgba($brand, 1) 100%
+    );
+
+    animation: rotation 2.7s linear infinite;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: $size - 2px;
+        height: $size - 2px;
+        border-radius: 50%;
+        background: $base;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -7,7 +7,6 @@ body {
 
     font-size: var(--font-size);
     line-height: var(--line-height);
-    font-family: var(--font), monospace;
 
     background: #253942;
     color: #7bbddb;
@@ -40,6 +39,13 @@ main {
     display: flex;
     align-items: center;
     align-content: center;
+
+    img {
+        display: inline-block;
+        margin-bottom: -2px;
+
+        border-radius: 4px;
+    }
 }
 
 .separator {
@@ -50,4 +56,8 @@ main {
     div:not(:first-child) {
         margin-left: -3px;
     }
+}
+
+.yellow {
+    color: yellow;
 }

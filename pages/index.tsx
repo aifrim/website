@@ -8,12 +8,11 @@ const firaCode = Fira_Code({
     subsets: ["latin"],
     display: "block",
     preload: true,
-    variable: "--font",
 });
 
 const Home: NextPage = () => {
     return (
-        <main className={cls(firaCode.variable)}>
+        <main className={firaCode.className}>
             <Head>
                 <title>aifrim.com - shell</title>
                 <meta name="description" content="/home" />

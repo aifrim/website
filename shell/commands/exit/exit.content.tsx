@@ -1,4 +1,4 @@
-import Loading from "../../components/loading/loadiong";
+import Loading from "../../components/loading";
 
 export default function ExitContent() {
     return (

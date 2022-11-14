@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import Avatar from "../components/avatar";
 import { sleep } from "../utils";
 import { createContextProvider } from "./create";
 import { useUserHasEntered } from "./entered.provider";
@@ -15,11 +16,13 @@ const fontLoading = (font: string) =>
         }
     });
 
-const generateInitializationMessage = (text: JSX.Element, tick = false) => (
+const generateInitializationMessage = (text: JSX.Element, icon?: string) => (
     <div className="cmd">
-        {tick ? <span className="material-symbols-outlined">done</span> : null}
+        {icon ? (
+            <span className="material-symbols-outlined yellow">{icon}</span>
+        ) : null}
         <span>
-            {tick ? <>&nbsp;</> : null}
+            {icon ? <>&nbsp;</> : null}
             {text}
         </span>
     </div>
@@ -62,17 +65,29 @@ function useInitializationStore() {
             </div>
         );
 
-        const startupMessages = [
-            <>Welcome to aifrim.com</>,
-            <>&nbsp;</>,
-            <>#&nbsp;Starting application initialization</>,
-            <>#&nbsp;Waiting for necessary packages</>,
+        const startupMessages: [
+            JSX.Element,
+            string | undefined,
+            number | undefined
+        ][] = [
+            [
+                <>
+                    <Avatar size={14} /> Welcome to aifrim.com
+                </>,
+                undefined,
+                0,
+            ],
+            [<>&nbsp;</>, undefined, 0],
+            [<>Starting application initialization</>, "terminal", 500],
+            [<>Waiting for necessary packages</>, "local_shipping", 1500],
         ];
 
-        for (const message of startupMessages) {
-            addInitializationMessage(generateInitializationMessage(message));
+        for (const [message, icon, dream = 500] of startupMessages) {
+            addInitializationMessage(
+                generateInitializationMessage(message, icon)
+            );
 
-            await sleep(500);
+            await sleep(dream);
         }
 
         addInitializationMessage(separator);
@@ -81,16 +96,17 @@ function useInitializationStore() {
 
         await fontLoading("14px 'Material Symbols Outlined'");
 
-        const messages = [
-            <>User interface dependencies loaded</>,
-            <>Setting up individual parameters</>,
-            <>Apostatizing reducers</>,
-            <>Enduring safari problems</>,
+        const messages: [JSX.Element, string | undefined][] = [
+            [<>User interface dependencies loaded</>, "text_fields"],
+            [<>Setting up individual parameters</>, "model_training"],
+            [<>Apostatizing reducers</>, "reduce_capacity"],
+            [<>Enduring safari problems</>, "bug_report"],
+            [<>Launching alpha version</>, "cloud_upload"],
         ];
 
-        for (const message of messages) {
+        for (const [message, icon = "done"] of messages) {
             addInitializationMessage(
-                generateInitializationMessage(message, true)
+                generateInitializationMessage(message, icon)
             );
 
             await sleep(1000);

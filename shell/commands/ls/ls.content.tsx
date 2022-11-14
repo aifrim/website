@@ -1,6 +1,6 @@
 import { useShell } from "../../providers/shell.provider";
 import trpc from "../../../utils/trpc";
-import Loading from "../../components/loading/loadiong";
+import Loading from "../../components/loading";
 
 export default function ListDirectoryContent() {
     const { cwd } = useShell();
