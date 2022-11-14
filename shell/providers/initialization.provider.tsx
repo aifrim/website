@@ -78,6 +78,12 @@ function useInitializationStore() {
                 0,
             ],
             [<>&nbsp;</>, undefined, 0],
+            [
+                <>Material Symbols kinks failed to die</>,
+                "sentiment_very_dissatisfied",
+                500,
+            ],
+            [<>&nbsp;</>, undefined, 0],
             [<>Starting application initialization</>, "terminal", 500],
             [<>Waiting for necessary packages</>, "local_shipping", 1500],
         ];
