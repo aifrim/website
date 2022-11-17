@@ -12,7 +12,7 @@
         "@next/font": "^13.0.3",
         "@trpc/client": "^9.27.4",
         "@trpc/next": "^9.27.4",
-        "@trpc/react": "^9.27.2",
+        "@trpc/react": "^9.27.4",
         "@trpc/server": "^9.27.4",
         "@types/is-hotkey": "^0.1.7",
         "@vercel/analytics": "^0.1.5",
